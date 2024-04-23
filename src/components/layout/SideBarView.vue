@@ -6,6 +6,7 @@ import NotificationIcon from '@/components/icons/NotificationIcon.vue'
 import SettingsIcon from '@/components/icons/SettingsIcon.vue'
 import MOJIcon from '@/components/icons/MOJIcon.vue'
 import VisionIcon from '@/components/icons/VisionIcon.vue'
+import RequestsIcon from '@/components/icons/RequestsIcon.vue'
 </script>
 
 <template>
@@ -24,7 +25,7 @@ import VisionIcon from '@/components/icons/VisionIcon.vue'
         </RouterLink>
         <RouterLink to="/">
           <div class="item flex items-center gap-3 p-2 mt-1 hover:bg-light-5 rounded-lg">
-            <HomeIcon />
+            <RequestsIcon />
             <div class="text-black font-bold">الطلبات</div>
           </div>
         </RouterLink>
