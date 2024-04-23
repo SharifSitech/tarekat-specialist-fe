@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  Requests List
+  <div>
+    Requests List
+  </div>
 </template>
 
 <style scoped>
