@@ -7,7 +7,7 @@ import SideBarView from '@/components/layout/SideBarView.vue'
 
   <div class="flex !font-Almarai">
     <SideBarView />
-    <div class="bg-g-5 flex-1 p-10">
+    <div class="bg-g-5 flex-1 p-10 h-[100vh]">
       <RouterView />
     </div>
   </div>
