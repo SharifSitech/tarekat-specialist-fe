@@ -32,8 +32,8 @@ const getStatusLabel = (status) => {
   }
 };
 
-const navigateToAbout = () => {
-  router.push('/requests/request-details');
+const navigateToAbout = (id) => {
+  router.push(`/requests/request-details/${id}`);
 };
 </script>
 
@@ -55,7 +55,7 @@ const navigateToAbout = () => {
       <PrimeColumn field="step" header="المرحلة"></PrimeColumn>
       <PrimeColumn style="width: 10%; min-width: 8rem" bodyStyle="text-align:center">
         <template #body="{ data, frozenRow, index }">
-          <div class="flex items-center justify-center rounded-[8px] w-[35px] h-[35px] bg-g-5 p-[6px]" @click="navigateToAbout">
+          <div class="flex items-center justify-center rounded-[8px] w-[35px] h-[35px] bg-g-5 p-[6px]" @click="navigateToAbout(data?.id)">
             <i class="pi pi-arrow-left text-g-2 font-bold cursor-pointer"></i>
           </div>
         </template>
