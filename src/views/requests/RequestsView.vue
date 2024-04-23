@@ -13,7 +13,7 @@ import FilterIcon from "@/components/icons/FilterIcon.vue";
 
 <template>
   <div class="requests">
-    <p class="flex text-[22px] text-[#A0A3A2] leading-[130%] font-bold">الطلبات</p>
+    <p class="flex mb-4 text-[22px] text-[#A0A3A2] leading-[130%] font-bold">الطلبات</p>
     <div class="flex justify-between">
       <div class="flex">
         <div

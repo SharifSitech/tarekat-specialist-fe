@@ -1,11 +1,14 @@
 <script setup>
+import {useRouter} from 'vue-router';
 import {ref, onMounted} from 'vue';
 import {ProductService} from '@/service/ProductService.ts';
+
 
 onMounted(() => {
   ProductService.getProductsMini().then((data) => (products.value = data));
 });
 
+const router = useRouter();
 const products = ref();
 const selectedProduct = ref();
 
@@ -28,6 +31,10 @@ const getStatusLabel = (status) => {
       return null;
   }
 };
+
+const navigateToAbout = () => {
+  router.push('/requests/request-details');
+};
 </script>
 
 <template>
@@ -40,7 +47,7 @@ const getStatusLabel = (status) => {
       <PrimeColumn field="status" header="حالة الطلب">
         <template #body="{data}">
           <p :class="`${getStatusLabel(data?.status)} border border-solid flex items-center text-xs font-bold rounded-full px-[10px] py-[6px] w-fit h-[25px]`">
-            {{getStatusText(data?.status)}}
+            {{ getStatusText(data?.status) }}
           </p>
         </template>
       </PrimeColumn>
@@ -48,7 +55,7 @@ const getStatusLabel = (status) => {
       <PrimeColumn field="step" header="المرحلة"></PrimeColumn>
       <PrimeColumn style="width: 10%; min-width: 8rem" bodyStyle="text-align:center">
         <template #body="{ data, frozenRow, index }">
-          <div class="flex items-center justify-center rounded-[8px] w-[35px] h-[35px] bg-g-5 p-[6px]">
+          <div class="flex items-center justify-center rounded-[8px] w-[35px] h-[35px] bg-g-5 p-[6px]" @click="navigateToAbout">
             <i class="pi pi-arrow-left text-g-2 font-bold cursor-pointer"></i>
           </div>
         </template>
