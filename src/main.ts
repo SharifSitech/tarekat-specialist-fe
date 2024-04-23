@@ -1,7 +1,7 @@
 import './styles/main.scss'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
 
 import App from './App.vue'
 import router from './router'
@@ -13,6 +13,14 @@ import PrimeVue from 'primevue/config';
 import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown';
 import Dialog from 'primevue/dialog';
+import InputText from "primevue/inputtext";
+import IconField from "primevue/iconfield";
+import InputIcon from "primevue/inputicon";
+import DataTable from 'primevue/datatable';
+import Tag from "primevue/tag";
+import Column from "primevue/column";
+
+import 'primeicons/primeicons.css';
 
 const app = createApp(App)
 
@@ -24,5 +32,11 @@ app.use(PrimeVue)
 app.component('PrimeButton', Button);
 app.component('PrimeDropdown', Dropdown);
 app.component('PrimeDialog', Dialog);
+app.component('PrimeIconField', IconField);
+app.component('PrimeInputText', InputText);
+app.component('PrimeInputIcon', InputIcon);
+app.component('PrimeDataTable', DataTable);
+app.component('PrimeTag', Tag);
+app.component('PrimeColumn', Column);
 
 app.mount('#app')

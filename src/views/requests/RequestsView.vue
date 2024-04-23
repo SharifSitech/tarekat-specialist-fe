@@ -1,60 +1,62 @@
 <script setup>
-import {ref} from "vue";
 import FileUpIcon from "@/components/icons/FileUpIcon.vue";
 import RequestsCard from "@/components/requests/RequestsCard.vue";
 import FileEyeIcon from "@/components/icons/FileEyeIcon.vue";
 import FileCheckIcon from "@/components/icons/FileCheckIcon.vue";
 import FileXIcon from "@/components/icons/FileXIcon.vue";
+import DropDownList from "@/components/dropDown/DropDownList.vue";
+import CustomDataTable from "@/components/dataTable/CustomDataTable.vue";
+import SearchInput from "@/components/searchInput/SearchInput.vue";
+import FilterIcon from "@/components/icons/FilterIcon.vue";
 
-const selectedCity = ref();
-const cities = ref([
-  {name: 'New York', code: 'NY'},
-  {name: 'Rome', code: 'RM'},
-  {name: 'London', code: 'LDN'},
-  {name: 'Istanbul', code: 'IST'},
-  {name: 'Paris', code: 'PRS'}
-]);
 </script>
 
 <template>
   <div class="requests">
     <p class="flex text-[22px] text-[#A0A3A2] leading-[130%] font-bold">الطلبات</p>
-    <div class="flex">
+    <div class="flex justify-between">
+      <div class="flex">
+        <div
+            class="w-[42px] h-[42px] flex bg-white items-center justify-center rounded-[8px] border-solid border-g-4 p-[12px]">
+          <FilterIcon/>
+        </div>
+
+        <SearchInput class="mx-4"/>
+      </div>
+
+      <DropDownList/>
+    </div>
+    <div class="flex my-6">
       <RequestsCard class="justify-between" number="3">
         <template v-slot:icon-with-title>
           <FileUpIcon class="me-1"/>
-          <p class="text-sm text-[#1F2120]">طلبات جديدة</p>
+          <p class="text-sm text-black">طلبات جديدة</p>
         </template>
       </RequestsCard>
 
       <RequestsCard class="justify-between" number="6">
         <template v-slot:icon-with-title>
           <FileEyeIcon class="me-1"/>
-          <p class="text-sm text-[#1F2120]">طلبات قيد التنفيذ</p>
+          <p class="text-sm text-black">طلبات قيد التنفيذ</p>
         </template>
       </RequestsCard>
 
       <RequestsCard class="justify-between" number="10">
         <template v-slot:icon-with-title>
           <FileCheckIcon class="me-1"/>
-          <p class="text-sm text-[#1F2120]">طلبات منتهية</p>
+          <p class="text-sm text-black">طلبات منتهية</p>
         </template>
       </RequestsCard>
 
       <RequestsCard class="justify-between" number="4">
         <template v-slot:icon-with-title>
           <FileXIcon class="me-1"/>
-          <p class="text-sm text-[#1F2120]">طلبات ملغاة</p>
+          <p class="text-sm text-black">طلبات ملغاة</p>
         </template>
       </RequestsCard>
-      <Button label="Submit" />
-      <!--            <Dropdown-->
-      <!--                v-model="selectedCity"-->
-      <!--                :options="[]"-->
-      <!--                optionLabel="name"-->
-      <!--                placeholder="الاجراءات"-->
-      <!--                class="w-full"/>-->
     </div>
+
+    <CustomDataTable />
   </div>
 </template>
 

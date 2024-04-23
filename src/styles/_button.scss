@@ -1,0 +1,19 @@
+.p-button {
+  @apply py-4 min-w-[120px] rounded-lg text-[18px] font-bold font-Almarai;
+
+  &:not(.p-button-outlined) {
+    @apply bg-primary border-none;
+  }
+
+  &.p-button-outlined {
+    @apply text-primary border-primary;
+  }
+
+  &.p-button-danger {
+    @apply text-dialog-red border-dialog-red
+  }
+
+  &:hover {
+    @apply opacity-85
+  }
+}

@@ -1,0 +1,22 @@
+.p-dropdown {
+  @apply font-Almarai flex items-center justify-center min-w-[92px] border border-g-4 rounded-lg;
+
+  span {
+    @apply ps-2 p-1 font-Almarai text-g-1 text-sm font-bold;
+  }
+
+  & .p-dropdown-trigger {
+    @apply font-Almarai text-g-1 font-bold text-sm;
+  }
+}
+
+.p-dropdown-panel .p-dropdown-items-wrapper .p-dropdown-items .p-dropdown-item {
+  @apply font-Almarai;
+
+  &.p-highlight {
+    @apply bg-light-5;
+    &.p-focus {
+      @apply bg-light-4;
+    }
+  }
+}

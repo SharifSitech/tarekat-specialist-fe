@@ -1,0 +1,15 @@
+.p-datatable {
+  @apply font-Almarai border border-solid border-g-4 rounded-[8px];
+
+  .p-datatable-tbody > tr > td {
+    @apply text-start;
+  }
+
+  .p-datatable-thead > tr > th {
+    @apply bg-transparent text-g-1 text-xs font-bold;
+  }
+
+  .p-datatable-thead {
+    @apply bg-g-5;
+  }
+}
