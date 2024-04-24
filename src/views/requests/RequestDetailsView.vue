@@ -84,7 +84,7 @@ const scrollableTabs = [
       </div>
     </div>
     <div>
-      <CustomTabs :scrollableTabs="scrollableTabs"/>
+      <CustomTabs :tabsList="scrollableTabs"/>
     </div>
   </div>
 </template>
