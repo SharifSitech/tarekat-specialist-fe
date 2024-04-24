@@ -12,4 +12,22 @@
   .p-datatable-thead {
     @apply bg-g-5;
   }
+
+  .p-datatable-footer {
+    .p-paginator-current {
+      @apply text-g-1 font-bold font-Almarai text-sm;
+    }
+
+    .p-paginator {
+      @apply flex w-full items-center justify-between;
+
+      .p-paginator-next {
+        @apply border border-solid border-g-4 rounded-lg font-Almarai text-g-1 text-sm font-bold uppercase;
+      }
+
+      .p-paginator-prev {
+        @apply border border-solid border-g-4 rounded-lg font-Almarai text-g-1 text-sm font-bold uppercase;
+      }
+    }
+  }
 }

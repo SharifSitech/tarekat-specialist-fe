@@ -1,11 +1,12 @@
 <script setup>
 import {onMounted, ref} from "vue";
+import {ProductService} from "@/service/ProductService.ts";
 import CustomAccordion from "@/components/accordion/CustomAccordion.vue";
 import CustomDataTable from "@/components/dataTable/CustomDataTable.vue";
 import FileEyeIcon from "@/components/icons/FileEyeIcon.vue";
 import MinusCircleContainedIcon from "@/components/icons/MinusCircleContainedIcon.vue";
 import ClockIcon from "@/components/icons/ClockIcon.vue";
-import {ProductService} from "@/service/ProductService.ts";
+import RequestStatusTag from "@/components/statusTag/RequestStatusTag.vue";
 
 onMounted(() => {
   ProductService.getRequestStepsData().then((data) => (dataList.value = data));
@@ -32,11 +33,8 @@ const tableHeaders = [
   },
   {
     title: "حالة الطلب",
-    field: "status"
-  },
-  {
-    title: "",
-    field: ""
+    field: "status",
+    component: RequestStatusTag
   }
 ]
 const tableActions = [
@@ -48,7 +46,13 @@ const tabs = [
   {
     title: "الموافقة على معلومات الورثة",
     component: CustomDataTable,
-    props: {data: dataList, headers: tableHeaders, showSelectMode: false, tableActions: tableActions}, // Props for the component
+    props: {
+      data: dataList,
+      headers: tableHeaders,
+      showSelectMode: false,
+      tableActions: tableActions,
+      showPagination: false
+    }, // Props for the component
     header: {
       title: "بحاجة لمراجعة",
       icon: FileEyeIcon,

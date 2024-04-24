@@ -7,6 +7,7 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'طلب حصر إرث',
                 status: 2,
+                progress: 20,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
             },
             {
@@ -15,8 +16,7 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'الإفصاح عن دين',
                 status: 2,
-                otherOrders: 2,
-                step: 'الموافقة على معلومات التركة',
+                progress: 35,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
             },
             {
@@ -25,8 +25,7 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'الإفصاح عن وصية',
                 status: 1,
-                otherOrders: 4,
-                step: 'اصدار الوثيقة النهائية',
+                progress: 20,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
             },
             {
@@ -35,8 +34,7 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'الإفصاح عن وقف',
                 status: 1,
-                otherOrders: 2,
-                step: 'تهيئة التركة',
+                progress: 50,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
             },
             {
@@ -45,8 +43,7 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'طلب شاهد',
                 status: 2,
-                otherOrders: 1,
-                step: 'قسمة التركة',
+                progress: 70,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
             },
             {
@@ -55,8 +52,7 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'الإفصاح عن ورث',
                 status: 2,
-                otherOrders: 3,
-                step: 'الموافقة على معلومات الورثة',
+                progress: 60,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
             },
             {
@@ -65,8 +61,7 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'الإفصاح عن دين',
                 status: 2,
-                otherOrders: 2,
-                step: 'الموافقة على معلومات التركة',
+                progress: 15,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
             },
             {
@@ -75,10 +70,8 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'الإفصاح عن وقف',
                 status: 1,
-                otherOrders: 2,
-                step: 'تهيئة التركة',
+                progress: 90,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
-
             },
             {
                 id: '1008',
@@ -86,10 +79,8 @@ export const ProductService = {
                 name: 'أحمد جاسعارف احمد عبد العزيز الخالديم السلطان',
                 orderType: 'توثيق وثيقة',
                 status: 1,
-                otherOrders: 1,
-                step: 'توثيق وثيقة حصر تركة',
+                progress: 60,
                 lastAction: 'مراجعة وثيقة حصر الرث اذا كان هناك اي اعتراض',
-
             }
         ];
     },

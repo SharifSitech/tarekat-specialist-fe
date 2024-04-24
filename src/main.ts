@@ -23,6 +23,8 @@ import TabPanel from "primevue/tabpanel";
 import TabView from "primevue/tabview";
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import ProgressBar from 'primevue/progressbar';
+import Paginator from 'primevue/paginator';
 
 import 'primeicons/primeicons.css';
 
@@ -46,5 +48,7 @@ app.component('PrimeTabPanel', TabPanel);
 app.component('PrimeTabView', TabView);
 app.component('PrimeAccordion', Accordion);
 app.component('PrimeAccordionTab', AccordionTab);
+app.component('PrimeProgressBar', ProgressBar);
+app.component('PrimePaginator', Paginator);
 
 app.mount('#app')

@@ -43,7 +43,7 @@ const dataList = ref();
   <SearchFilter class="mt-4 mb-8"/>
   <CustomDataTable :data="dataList" :headers="tableHeaders" :show-select-mode="false" :show-action="false"/>
   <div class="flex mt-6 gap-4">
-    <PrimeButton label="الموافقة دون تعديل" severity="primary" size="small"/>
-    <PrimeButton label="رفض الطلب" severity="danger" outlined size="small"/>
+    <PrimeButton label="الموافقة دون تعديل" severity="primary"/>
+    <PrimeButton label="رفض الطلب" severity="danger" outlined/>
   </div>
 </template>

@@ -10,6 +10,7 @@ import FileXIcon from "@/components/icons/FileXIcon.vue";
 import DropDownList from "@/components/dropDown/DropDownList.vue";
 import SearchFilter from "@/components/filter/SearchFilter.vue";
 import CustomDataTable from "@/components/dataTable/CustomDataTable.vue";
+import RequestStatus from "@/views/requests/RequestStatus.vue";
 
 onMounted(() => {
   ProductService.getRequestDataList().then((data) => (dataList.value = data));
@@ -32,7 +33,8 @@ const tableHeaders = [
   },
   {
     title: "حالة الطلب",
-    field: "status"
+    field: "status",
+    component: RequestStatus
   },
   {
     title: "آخر حركة",

@@ -37,11 +37,21 @@ onMounted(() => {
 });
 
 const dataList = ref();
+const selectedWitness = ref();
+const showDialog = ref(false);
+
+const changeShowDialog = (data) => {
+  showDialog.value = !showDialog.value;
+  selectedWitness.value = {
+    name: data.name,
+    phoneNumber: data.phoneNumber
+  }
+}
 
 const tableActions = [
   {
     icon: PhoneCall,
-    event: (data) => alert(data.name)
+    event: (data) => changeShowDialog(data)
   }
 ]
 </script>
@@ -49,5 +59,18 @@ const tableActions = [
 <template>
   <SearchFilter class="mt-4 mb-8"/>
   <CustomDataTable :data="dataList" :headers="tableHeaders" :tableActions="tableActions" :show-select-mode="false"/>
+
+  <PrimeDialog v-model:visible="showDialog" modal header="هل تريد الاتصال بالشاهد" :style="{ width: '25rem' }">
+    <div class="flex flex-col h-full w-full">
+      <p>{{ selectedWitness.name }}</p>
+      <p>{{ selectedWitness.phoneNumber }}</p>
+    </div>
+    <template #footer>
+      <div class="flex gap-2 w-full">
+        <PrimeButton label="الاتصال" severity="primary" @click="changeShowDialog"/>
+        <PrimeButton label="إالغاد" outlined severity="secondary" @click="changeShowDialog"/>
+      </div>
+    </template>
+  </PrimeDialog>
 </template>
 
