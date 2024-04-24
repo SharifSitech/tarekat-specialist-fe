@@ -1,29 +1,61 @@
 <script setup>
+import {onMounted, ref} from "vue";
+import {useRouter} from "vue-router";
+import {ProductService} from "@/service/ProductService.ts";
 import FileUpIcon from "@/components/icons/FileUpIcon.vue";
 import RequestsCard from "@/components/requests/RequestsCard.vue";
 import FileEyeIcon from "@/components/icons/FileEyeIcon.vue";
 import FileCheckIcon from "@/components/icons/FileCheckIcon.vue";
 import FileXIcon from "@/components/icons/FileXIcon.vue";
 import DropDownList from "@/components/dropDown/DropDownList.vue";
+import SearchFilter from "@/components/filter/SearchFilter.vue";
 import CustomDataTable from "@/components/dataTable/CustomDataTable.vue";
-import SearchInput from "@/components/searchInput/SearchInput.vue";
-import FilterIcon from "@/components/icons/FilterIcon.vue";
 
+onMounted(() => {
+  ProductService.getRequestDataList().then((data) => (dataList.value = data));
+});
+const dataList = ref();
+const router = useRouter();
+
+const tableHeaders = [
+  {
+    title: "رقم الطلب",
+    field: "orderNumber"
+  },
+  {
+    title: "نوع الطلب",
+    field: "orderType"
+  },
+  {
+    title: "إسم المورث",
+    field: "name"
+  },
+  {
+    title: "حالة الطلب",
+    field: "status"
+  },
+  {
+    title: "آخر حركة",
+    field: "lastAction"
+  }
+]
+
+const navigateToAbout = (id) => {
+  router.push(`/requests/request-details/${id}`);
+};
+
+const tableActions = [
+  {
+    event: (data) => navigateToAbout(data.id)
+  }
+]
 </script>
 
 <template>
   <div class="requests">
-    <p class="flex mb-4 text-[22px] text-[#A0A3A2] leading-[130%] font-bold">الطلبات</p>
+    <p class="flex mb-4 text-[22px] text-g-2 leading-[130%] font-bold">الطلبات</p>
     <div class="flex justify-between">
-      <div class="flex">
-        <div
-            class="w-[42px] h-[42px] flex bg-white items-center justify-center rounded-[8px] border-solid border-g-4 p-[12px]">
-          <FilterIcon/>
-        </div>
-
-        <SearchInput class="mx-4"/>
-      </div>
-
+      <SearchFilter/>
       <DropDownList/>
     </div>
     <div class="flex my-6">
@@ -56,7 +88,7 @@ import FilterIcon from "@/components/icons/FilterIcon.vue";
       </RequestsCard>
     </div>
 
-    <CustomDataTable />
+    <CustomDataTable :data="dataList" :headers="tableHeaders" :tableActions="tableActions"/>
   </div>
 </template>
 

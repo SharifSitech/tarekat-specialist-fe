@@ -1,16 +1,50 @@
 <script setup>
 import {useRouter} from 'vue-router';
-import {ref, onMounted} from 'vue';
-import {ProductService} from '@/service/ProductService.ts';
+import {ref, watch} from 'vue';
 
-
-onMounted(() => {
-  ProductService.getProductsMini().then((data) => (products.value = data));
-});
+const props = defineProps({
+  headers: {
+    type: Array,
+    default() {
+      return [];
+    }
+  },
+  data: {
+    type: Array,
+    default() {
+      return [];
+    }
+  },
+  tableActions: {
+    type: Array,
+    default() {
+      return [];
+    }
+  },
+  showSelectMode: {
+    type: Boolean,
+    default() {
+      return true;
+    }
+  },
+  showAction: {
+    type: Boolean,
+    default() {
+      return true;
+    }
+  }
+})
 
 const router = useRouter();
-const products = ref();
-const selectedProduct = ref();
+const selectedRow = ref();
+const dataList = ref(props.data);
+
+watch(
+    () => props.data,
+    (data) => {
+      dataList.value = data
+    }
+)
 
 const statuses = ref([
   {label: 'جديد', value: 1},
@@ -31,35 +65,48 @@ const getStatusLabel = (status) => {
       return null;
   }
 };
-
-const navigateToAbout = (id) => {
-  router.push(`/requests/request-details/${id}`);
-};
 </script>
 
 <template>
   <div class="card">
-    <PrimeDataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-      <PrimeColumn selectionMode="multiple" headerStyle="width: 3rem"></PrimeColumn>
-      <PrimeColumn field="orderNumber" header="رقم الطلب"></PrimeColumn>
-      <PrimeColumn field="name" header="إسم المتوفي"></PrimeColumn>
-      <PrimeColumn field="orderType" header="نوع الطلب"></PrimeColumn>
-      <PrimeColumn field="status" header="حالة الطلب">
-        <template #body="{data}">
-          <p :class="`${getStatusLabel(data?.status)} border border-solid flex items-center text-xs font-bold rounded-full px-[10px] py-[6px] w-fit h-[25px]`">
-            {{ getStatusText(data?.status) }}
-          </p>
-        </template>
+    <PrimeDataTable v-model:selection="selectedRow" :value="dataList" dataKey="id" tableStyle="min-width: 50rem">
+      <template v-if="showSelectMode">
+        <PrimeColumn selectionMode="multiple" headerStyle="width: 3rem"></PrimeColumn>
+      </template>
+
+      <PrimeColumn
+          v-for="header in headers"
+          :key="header.title"
+          :field="header.field"
+          :header="header.title">
       </PrimeColumn>
-      <PrimeColumn field="otherOrders" header="طلبات فرعية"></PrimeColumn>
-      <PrimeColumn field="step" header="المرحلة"></PrimeColumn>
-      <PrimeColumn style="width: 10%; min-width: 8rem" bodyStyle="text-align:center">
-        <template #body="{ data, frozenRow, index }">
-          <div class="flex items-center justify-center rounded-[8px] w-[35px] h-[35px] bg-g-5 p-[6px]" @click="navigateToAbout(data?.id)">
-            <i class="pi pi-arrow-left text-g-2 font-bold cursor-pointer"></i>
-          </div>
-        </template>
-      </PrimeColumn>
+
+      <!--        <template #body="{data}">-->
+      <!--          <p :class="`${getStatusLabel(data?.status)} border border-solid flex items-center text-xs font-bold rounded-full px-[10px] py-[6px] w-fit h-[25px]`">-->
+      <!--            {{ getStatusText(data?.status) }}-->
+      <!--          </p>-->
+      <!--        </template>-->
+      <!--      </PrimeColumn>-->
+
+      <template v-if="showAction && tableActions.length > 0">
+        <PrimeColumn
+            v-for="(action,index) in tableActions"
+            :key="index"
+            style="width: 10%; min-width: 8rem"
+            bodyStyle="text-align:center">
+          <template #body="{ data, frozenRow, index }">
+            <div class="flex items-center justify-center rounded-lg w-[35px] h-[35px] bg-g-5 p-[6px]"
+                 @click="action.event(data)">
+              <template v-if="action.icon">
+                <component :is="action.icon" v-bind="action.props" class="text-g-2 font-bold cursor-pointer"/>
+              </template>
+              <template v-else>
+                <i class="pi pi-arrow-left text-g-2 font-bold cursor-pointer"></i>
+              </template>
+            </div>
+          </template>
+        </PrimeColumn>
+      </template>
     </PrimeDataTable>
   </div>
 </template>

@@ -1,0 +1,29 @@
+.p-tabview {
+  .p-tabview-title {
+    @apply text-g-1 text-base font-bold uppercase font-Almarai text-center;
+  }
+
+  .p-tabview-header {
+    &.p-highlight {
+      & .p-tabview-title {
+        @apply text-primary;
+      }
+    }
+  }
+
+  .p-tabview-panels {
+    @apply pt-4 p-0 bg-transparent;
+  }
+
+  .p-tabview-ink-bar {
+    @apply h-[3px] bg-dark-1;
+  }
+
+  .p-tabview-nav {
+    @apply bg-transparent;
+
+    li .p-tabview-nav-link {
+      @apply bg-transparent;
+    }
+  }
+}

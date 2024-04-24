@@ -19,6 +19,10 @@ import InputIcon from "primevue/inputicon";
 import DataTable from 'primevue/datatable';
 import Tag from "primevue/tag";
 import Column from "primevue/column";
+import TabPanel from "primevue/tabpanel";
+import TabView from "primevue/tabview";
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
 
 import 'primeicons/primeicons.css';
 
@@ -38,5 +42,9 @@ app.component('PrimeInputIcon', InputIcon);
 app.component('PrimeDataTable', DataTable);
 app.component('PrimeTag', Tag);
 app.component('PrimeColumn', Column);
+app.component('PrimeTabPanel', TabPanel);
+app.component('PrimeTabView', TabView);
+app.component('PrimeAccordion', Accordion);
+app.component('PrimeAccordionTab', AccordionTab);
 
 app.mount('#app')

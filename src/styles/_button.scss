@@ -1,5 +1,5 @@
 .p-button {
-  @apply py-4 min-w-[120px] rounded-lg text-[18px] font-bold font-Almarai;
+  @apply p-3 min-w-[120px] rounded-lg text-sm font-bold font-Almarai leading-[120%];
 
   &:not(.p-button-outlined) {
     @apply bg-primary border-none;

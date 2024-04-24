@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="request-card flex me-3 mt-2 items-center gap-6 rounded-[8px] bg-white p-[13px] w-[236px]">
+  <div class="request-card flex me-3 mt-2 items-center gap-6 rounded-lg bg-white p-[13px] w-[236px]">
     <div class="flex w-full">
       <slot name="icon-with-title"></slot>
     </div>

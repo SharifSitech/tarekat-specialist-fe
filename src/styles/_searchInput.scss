@@ -1,6 +1,6 @@
 .p-icon-field {
   & .p-inputtext {
-    @apply font-Almarai flex h-[42px] w-[300px] text-g-1 text-sm p-[10px] items-end self-stretch rounded-[8px] border border-g-4 bg-white;
+    @apply font-Almarai flex h-[42px] w-[300px] text-g-1 text-sm p-[10px] items-end self-stretch rounded-lg border border-g-4 bg-white;
   }
 
   & .p-input-icon{
